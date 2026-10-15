@@ -26,7 +26,7 @@ export default async function Home(props: {
     response: { products: heroProducts },
   } = await listProducts({
     countryCode,
-    queryParams: { limit: 1 },
+    queryParams: { limit: 1, fields: "+thumbnail,*images" },
   })
 
   const heroProduct = heroProducts[0] ?? null

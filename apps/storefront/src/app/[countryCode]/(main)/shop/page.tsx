@@ -48,7 +48,7 @@ const parseFilters = (
 }
 
 const PRODUCT_FIELDS =
-  "*variants.calculated_price,+variants.inventory_quantity,*variants.images,+thumbnail,+collection.title,+created_at"
+  "*variants.calculated_price,+variants.inventory_quantity,*variants.images,+thumbnail,*images,+collection.title,+created_at"
 
 export default async function ShopPage(props: {
   params: Promise<{ countryCode: string }>

@@ -11,6 +11,8 @@ type HeroProps = {
 }
 
 const Hero = ({ product, eyewear }: HeroProps) => {
+  const imageUrl = product?.thumbnail || product?.images?.[0]?.url
+
   return (
     <div className="grid grid-cols-1 items-center gap-10 py-10 small:grid-cols-2 small:gap-16 small:py-20">
       <div className="flex flex-col items-start gap-y-6">
@@ -18,7 +20,7 @@ const Hero = ({ product, eyewear }: HeroProps) => {
           Boutique eyewear · Secondigliano, Napoli
         </span>
 
-        <h1 className="font-serif text-4xl leading-[1.1] tracking-tight text-foreground small:text-6xl">
+        <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-foreground small:text-6xl">
           Vedere bene
           <br />
           cambia tutto.
@@ -45,9 +47,9 @@ const Hero = ({ product, eyewear }: HeroProps) => {
       </div>
 
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-card bg-cream small:aspect-square">
-        {product?.thumbnail ? (
+        {imageUrl ? (
           <Image
-            src={product.thumbnail}
+            src={imageUrl}
             alt={eyewear?.model_name ? `${eyewear.brand ?? ""} ${eyewear.model_name}`.trim() : product.title}
             fill
             priority

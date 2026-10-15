@@ -25,6 +25,7 @@ export default function ProductCard({
   unavailable,
 }: ProductCardProps) {
   const { cheapestPrice } = getProductPrice({ product })
+  const imageUrl = product.thumbnail || product.images?.[0]?.url
 
   return (
     <LocalizedClientLink
@@ -32,9 +33,9 @@ export default function ProductCard({
       className="group flex flex-col"
     >
       <div className="relative overflow-hidden rounded-card bg-cream aspect-[4/5]">
-        {product.thumbnail ? (
+        {imageUrl ? (
           <Image
-            src={product.thumbnail}
+            src={imageUrl}
             alt={eyewear?.model_name || product.title}
             fill
             sizes="(max-width: 768px) 50vw, 25vw"
@@ -49,12 +50,12 @@ export default function ProductCard({
           </div>
         )}
         {unavailable ? (
-          <span className="absolute left-3 top-3 rounded-full bg-surface px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-muted shadow-sm">
+          <span className="absolute left-3 top-3 rounded-full bg-muted px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-white shadow-sm">
             Non disponibile
           </span>
         ) : (
           badge && (
-            <span className="absolute left-3 top-3 rounded-full bg-surface px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-coffee shadow-sm">
+            <span className="absolute left-3 top-3 rounded-full bg-coffee px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-white shadow-sm">
               {badge}
             </span>
           )

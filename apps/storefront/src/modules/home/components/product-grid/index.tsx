@@ -3,7 +3,7 @@ import { retrieveProductEyewearDetails } from "@lib/data/eyewear"
 import ProductCard from "@modules/products/components/product-card"
 
 const FIELDS =
-  "*variants.calculated_price,+variants.inventory_quantity,*variants.images,+thumbnail,+collection.title"
+  "*variants.calculated_price,+variants.inventory_quantity,*variants.images,+thumbnail,*images,+collection.title"
 
 /**
  * Fetches real products for the given country/region and their EyewearDetails

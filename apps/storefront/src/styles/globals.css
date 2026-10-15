@@ -8,19 +8,25 @@
  * Tailwind classes) used throughout cart/checkout/account — those are left
  * untouched. These are for the premium marketing surfaces (header, footer,
  * homepage) built on top.
+ *
+ * White modern-minimal palette (Veluno-inspired): pure white surfaces, near-
+ * black ink for text/accents, soft neutral grays for secondary surfaces.
+ * Token *names* (--coffee, --cream, --sand, --sage) are kept as-is on
+ * purpose — every component already references them, so re-theming the
+ * whole site is just changing these values, not touching component code.
  */
 :root {
-  --background: #fbf9f5;
+  --background: #ffffff;
   --surface: #ffffff;
-  --cream: #f3ede1;
-  --sand: #e8dfcd;
-  --foreground: #2b2621;
-  --muted: #8a7f72;
-  --border: #e6ddcc;
-  --coffee: #6f4e37;
-  --coffee-hover: #593d2b;
-  --sage: #9aa88e;
-  --radius-card: 1rem;
+  --cream: #f5f5f4;
+  --sand: #ececea;
+  --foreground: #111111;
+  --muted: #6b6b6b;
+  --border: #e5e5e5;
+  --coffee: #111111;
+  --coffee-hover: #000000;
+  --sage: #6b6b6b;
+  --radius-card: 1.25rem;
   --container-max: 80rem;
 }
 
