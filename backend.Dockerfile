@@ -27,11 +27,17 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-# NODE_ENV must be set before the build: `medusa build` behaves differently
-# per-environment, and we need the actual production artifact, not a dev one.
-ENV NODE_ENV=production
-
 RUN pnpm --filter @dtc/backend build
+
+# NODE_ENV=production is set only after the build, not before: our own
+# medusa-config.ts hard-fails in production when the Supabase Storage env
+# vars are missing (intentional — see that file) — and Railway's "docker
+# build" step never has access to the service's runtime Variables (those are
+# only injected into the running container), so setting it earlier makes
+# every build fail on that check even though the build itself needs none of
+# that config. The real production env is still in effect at container
+# runtime below, since `medusa start` inherits whatever Railway injects.
+ENV NODE_ENV=production
 
 # `medusa start` resolves the admin bundle as `<cwd>/public/admin` — not
 # relative to the project root. The build writes it to
