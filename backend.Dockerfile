@@ -27,11 +27,20 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
+# NODE_ENV must be set before the build: `medusa build` behaves differently
+# per-environment, and we need the actual production artifact, not a dev one.
+ENV NODE_ENV=production
+
 RUN pnpm --filter @dtc/backend build
 
-ENV NODE_ENV=production
-WORKDIR /app/apps/backend
+# `medusa start` resolves the admin bundle as `<cwd>/public/admin` — not
+# relative to the project root. The build writes it to
+# apps/backend/.medusa/server/public/admin, so the process MUST be started
+# from inside .medusa/server, not from apps/backend itself. Verified locally:
+# starting from apps/backend reproduces "Could not find index.html in the
+# admin build directory" even when the file genuinely exists on disk.
+WORKDIR /app/apps/backend/.medusa/server
 
 EXPOSE 9000
 
-CMD ["pnpm", "start"]
+CMD ["node", "../../node_modules/@medusajs/cli/cli.js", "start"]
