@@ -69,13 +69,17 @@ const SideMenu = ({
                 leaveFrom="opacity-100 backdrop-blur-2xl"
                 leaveTo="opacity-0"
               >
-                <PopoverPanel className="flex flex-col absolute w-full pr-4 sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[calc(100vh-1rem)] z-[51] inset-x-0 text-sm text-ui-fg-on-color m-2 backdrop-blur-2xl">
+                <PopoverPanel className="flex flex-col absolute w-full pr-4 sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[calc(100vh-1rem)] z-[51] inset-x-0 text-sm text-foreground m-2">
                   <div
                     data-testid="nav-menu-popup"
-                    className="flex flex-col h-full bg-[rgba(3,7,18,0.5)] rounded-rounded justify-between p-6"
+                    className="flex flex-col h-full justify-between rounded-card border border-border bg-surface p-6 shadow-xl"
                   >
                     <div className="flex justify-end" id="xmark">
-                      <button data-testid="close-menu-button" onClick={close}>
+                      <button
+                        data-testid="close-menu-button"
+                        onClick={close}
+                        aria-label="Chiudi il menu"
+                      >
                         <XMark />
                       </button>
                     </div>
@@ -85,7 +89,7 @@ const SideMenu = ({
                           <li key={label}>
                             <LocalizedClientLink
                               href={href}
-                              className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                              className="text-3xl leading-10 text-foreground transition-colors hover:text-muted"
                               onClick={close}
                               data-testid={`${label.toLowerCase()}-link`}
                             >
@@ -133,9 +137,9 @@ const SideMenu = ({
                           )}
                         />
                       </div>
-                      <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
-                        reserved.
+                      <Text className="flex justify-between text-xs text-muted">
+                        © {new Date().getFullYear()} L&apos;Ottico. Tutti i
+                        diritti riservati.
                       </Text>
                     </div>
                   </div>

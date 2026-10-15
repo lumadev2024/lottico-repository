@@ -3,6 +3,7 @@ import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { Button, Text } from "@modules/common/components/ui"
 import PlaceholderImage from "@modules/common/icons/placeholder-image"
+import { PRODUCT_IMAGE_FALLBACK_URL } from "@lib/constants/stock-images"
 import type { StoreEyewearDetails } from "@lib/data/eyewear"
 
 type HeroProps = {
@@ -11,7 +12,8 @@ type HeroProps = {
 }
 
 const Hero = ({ product, eyewear }: HeroProps) => {
-  const imageUrl = product?.thumbnail || product?.images?.[0]?.url
+  const realImageUrl = product?.thumbnail || product?.images?.[0]?.url
+  const imageUrl = product ? realImageUrl || PRODUCT_IMAGE_FALLBACK_URL : null
 
   return (
     <div className="grid grid-cols-1 items-center gap-10 py-10 small:grid-cols-2 small:gap-16 small:py-20">
@@ -50,7 +52,7 @@ const Hero = ({ product, eyewear }: HeroProps) => {
         {imageUrl ? (
           <Image
             src={imageUrl}
-            alt={eyewear?.model_name ? `${eyewear.brand ?? ""} ${eyewear.model_name}`.trim() : product.title}
+            alt={eyewear?.model_name ? `${eyewear.brand ?? ""} ${eyewear.model_name}`.trim() : product!.title}
             fill
             priority
             sizes="(max-width: 768px) 90vw, 45vw"
@@ -60,6 +62,11 @@ const Hero = ({ product, eyewear }: HeroProps) => {
           <div className="flex h-full w-full items-center justify-center text-muted">
             <PlaceholderImage size={40} />
           </div>
+        )}
+        {product && !realImageUrl && (
+          <span className="absolute bottom-4 right-4 rounded-full bg-surface/90 px-2.5 py-1 text-[10px] text-muted shadow-sm backdrop-blur-sm">
+            Immagine rappresentativa
+          </span>
         )}
 
         {product && eyewear?.brand && (

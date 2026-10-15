@@ -1,9 +1,9 @@
 import Image from "next/image"
 import { HttpTypes } from "@medusajs/types"
 import { getProductPrice } from "@lib/util/get-product-price"
+import { PRODUCT_IMAGE_FALLBACK_URL } from "@lib/constants/stock-images"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { Text, clx } from "@modules/common/components/ui"
-import PlaceholderImage from "@modules/common/icons/placeholder-image"
 import type { StoreEyewearDetails } from "@lib/data/eyewear"
 
 type ProductCardProps = {
@@ -25,7 +25,8 @@ export default function ProductCard({
   unavailable,
 }: ProductCardProps) {
   const { cheapestPrice } = getProductPrice({ product })
-  const imageUrl = product.thumbnail || product.images?.[0]?.url
+  const realImageUrl = product.thumbnail || product.images?.[0]?.url
+  const imageUrl = realImageUrl || PRODUCT_IMAGE_FALLBACK_URL
 
   return (
     <LocalizedClientLink
@@ -33,21 +34,20 @@ export default function ProductCard({
       className="group flex flex-col"
     >
       <div className="relative overflow-hidden rounded-card bg-cream aspect-[4/5]">
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={eyewear?.model_name || product.title}
-            fill
-            sizes="(max-width: 768px) 50vw, 25vw"
-            className={clx(
-              "object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]",
-              unavailable && "grayscale"
-            )}
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-muted">
-            <PlaceholderImage size={32} />
-          </div>
+        <Image
+          src={imageUrl}
+          alt={eyewear?.model_name || product.title}
+          fill
+          sizes="(max-width: 768px) 50vw, 25vw"
+          className={clx(
+            "object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]",
+            unavailable && "grayscale"
+          )}
+        />
+        {!realImageUrl && (
+          <span className="absolute bottom-3 right-3 rounded-full bg-surface/90 px-2.5 py-1 text-[10px] text-muted shadow-sm">
+            Immagine rappresentativa
+          </span>
         )}
         {unavailable ? (
           <span className="absolute left-3 top-3 rounded-full bg-muted px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-white shadow-sm">
