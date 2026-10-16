@@ -1,12 +1,12 @@
 import { Metadata } from "next"
 
-import { listProducts } from "@lib/data/products"
-import { retrieveProductEyewearDetails } from "@lib/data/eyewear"
 import BrandStrip from "@modules/home/components/brand-strip"
 import CategoriesSection from "@modules/home/components/categories-section"
 import Hero from "@modules/home/components/hero"
 import ProductGrid from "@modules/home/components/product-grid"
 import SectionHeading from "@modules/home/components/section-heading"
+import SoleVistaBanner from "@modules/home/components/sole-vista-banner"
+import StoreGallery from "@modules/home/components/store-gallery"
 import StoreSection from "@modules/home/components/store-section"
 import VisitSection from "@modules/home/components/visit-section"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -22,56 +22,55 @@ export default async function Home(props: {
 }) {
   const { countryCode } = await props.params
 
-  const {
-    response: { products: heroProducts },
-  } = await listProducts({
-    countryCode,
-    queryParams: { limit: 1, fields: "+thumbnail,*images" },
-  })
-
-  const heroProduct = heroProducts[0] ?? null
-  const heroEyewear = heroProduct
-    ? await retrieveProductEyewearDetails(heroProduct.id)
-    : null
-
   return (
     <div className="content-container flex flex-col gap-y-24 py-10 small:gap-y-32 small:py-16">
-      <Hero product={heroProduct} eyewear={heroEyewear} />
+      <Hero />
 
       <section>
         <SectionHeading
           eyebrow="Selezione"
-          title="Novità in collezione"
-          description="I modelli più recenti della nostra selezione, scelti per qualità dei materiali e carattere."
+          title="Nuovi arrivi"
+          description="Scopri le ultime collezioni di occhiali da vista e da sole, selezionate per te."
           action={
             <LocalizedClientLink
               href="/shop"
               className="text-sm font-medium text-coffee hover:underline"
             >
-              Vedi tutto il catalogo →
+              Vedi tutti →
             </LocalizedClientLink>
           }
         />
         <ProductGrid countryCode={countryCode} />
       </section>
 
+      <SoleVistaBanner />
+
+      <section id="brand" className="scroll-mt-24">
+        <SectionHeading
+          eyebrow="Brand"
+          title="Brand selezionati"
+          description="I migliori marchi di occhiali da vista e da sole, per ogni stile."
+        />
+        <BrandStrip />
+      </section>
+
+      <StoreSection />
+
       <section>
         <SectionHeading eyebrow="Esplora" title="Categorie" />
         <CategoriesSection />
       </section>
 
-      <section id="brand" className="scroll-mt-24">
+      <section>
         <SectionHeading
-          eyebrow="Brand"
-          title="I brand che ami"
-          align="center"
+          eyebrow="L'esperienza L'Ottico"
+          title="Un mondo di stile, nel nostro negozio"
+          description="Scopri il nostro spazio, i dettagli, le collezioni e l'atmosfera di L'Ottico."
         />
-        <BrandStrip />
+        <StoreGallery />
       </section>
 
       <VisitSection />
-
-      <StoreSection />
     </div>
   )
 }

@@ -70,9 +70,20 @@ export default async function Nav() {
           <div className="flex h-full items-center">
             <LocalizedClientLink
               href="/"
-              className="text-xl font-medium tracking-wide text-foreground"
+              className="flex items-center gap-x-2 text-xl font-medium tracking-wide text-foreground"
               data-testid="nav-store-link"
             >
+              <svg
+                viewBox="0 0 32 20"
+                className="h-5 w-8 shrink-0 text-coffee"
+                aria-hidden="true"
+              >
+                <circle cx="9" cy="10" r="8" fill="none" stroke="currentColor" strokeWidth="2" />
+                <circle cx="23" cy="10" r="8" fill="none" stroke="currentColor" strokeWidth="2" />
+                <line x1="17" y1="9" x2="15" y2="9" stroke="currentColor" strokeWidth="2" />
+                <line x1="1" y1="8" x2="0" y2="6" stroke="currentColor" strokeWidth="2" />
+                <line x1="31" y1="8" x2="32" y2="6" stroke="currentColor" strokeWidth="2" />
+              </svg>
               L&apos;Ottico
             </LocalizedClientLink>
           </div>

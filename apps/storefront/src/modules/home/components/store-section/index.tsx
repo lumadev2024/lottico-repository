@@ -1,6 +1,12 @@
+import Image from "next/image"
 import { MapPin } from "@medusajs/icons"
 import { Text } from "@modules/common/components/ui"
-import PlaceholderImage from "@modules/common/icons/placeholder-image"
+
+const FEATURES = [
+  "Consulenza stilistica personalizzata",
+  "Controllo della vista",
+  "Esperienza e passione al tuo servizio",
+]
 
 export default function StoreSection() {
   return (
@@ -8,13 +14,14 @@ export default function StoreSection() {
       id="contatti"
       className="scroll-mt-24 grid grid-cols-1 items-center gap-10 small:grid-cols-2 small:gap-16"
     >
-      <div className="order-2 flex aspect-[4/3] items-center justify-center rounded-card bg-cream text-muted small:order-1">
-        {/* Real storefront photo not available yet: explicit placeholder,
-            not a stock image, per the no-fabricated-content requirement. */}
-        <div className="flex flex-col items-center gap-y-2">
-          <PlaceholderImage size={40} />
-          <Text className="text-xs">Foto del negozio in arrivo</Text>
-        </div>
+      <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-card small:order-1">
+        <Image
+          src="/images/store/interior-counter.jpg"
+          alt="Bancone e vetrina interna del negozio L'Ottico"
+          fill
+          sizes="(max-width: 1024px) 90vw, 45vw"
+          className="object-cover object-center"
+        />
       </div>
 
       <div className="order-1 flex flex-col gap-y-5 small:order-2">
@@ -22,15 +29,25 @@ export default function StoreSection() {
           Il negozio
         </span>
         <h2 className="text-3xl font-medium text-foreground small:text-4xl">
-          L&apos;Ottico
+          Vieni a trovarci
           <br />
-          Secondigliano, Napoli
+          da L&apos;Ottico
         </h2>
         <Text className="text-muted text-base leading-relaxed">
-          Boutique eyewear con consulenza personalizzata e controlli della
-          vista in sede. Vieni a scoprire la nostra selezione e a parlare con
-          noi del tuo occhiale ideale.
+          Un punto di riferimento a Secondigliano per chi cerca qualità,
+          consulenza professionale e uno stile unico. Nel nostro negozio ti
+          guidiamo nella scelta dell&apos;occhiale perfetto, con un servizio
+          su misura.
         </Text>
+
+        <ul className="flex flex-col gap-y-3">
+          {FEATURES.map((feature) => (
+            <li key={feature} className="flex items-start gap-x-3 text-foreground">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sage" />
+              <Text>{feature}</Text>
+            </li>
+          ))}
+        </ul>
 
         <div className="flex items-start gap-x-3 text-foreground">
           <MapPin className="mt-0.5 shrink-0" />

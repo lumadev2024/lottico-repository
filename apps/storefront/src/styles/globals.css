@@ -9,25 +9,25 @@
  * untouched. These are for the premium marketing surfaces (header, footer,
  * homepage) built on top.
  *
- * White modern-minimal palette (Veluno-inspired): pure white surfaces, near-
- * black ink for text/accents, soft neutral grays for secondary surfaces.
- * Token *names* (--coffee, --cream, --sand, --sage) are kept as-is on
- * purpose — every component already references them, so re-theming the
- * whole site is just changing these values, not touching component code.
+ * Warm boutique palette, matched to the real storefront (wood panelling,
+ * cream walls, near-black signage). Token *names* (--coffee, --cream,
+ * --sand, --sage) are kept as-is on purpose — every component already
+ * references them, so re-theming the whole site is just changing these
+ * values, not touching component code.
  */
 :root {
-  --background: #ffffff;
+  --background: #faf6ef;
   --surface: #ffffff;
-  --cream: #f5f5f4;
-  --sand: #ececea;
-  --foreground: #111111;
-  --muted: #6b6b6b;
-  --border: #e5e5e5;
-  --coffee: #111111;
+  --cream: #f3ece0;
+  --sand: #e9dfc9;
+  --foreground: #211a12;
+  --muted: #7a6f5f;
+  --border: #e3d8c3;
+  --coffee: #211a12;
   --coffee-hover: #000000;
-  --sage: #6b6b6b;
-  --radius-card: 1.25rem;
-  --container-max: 80rem;
+  --sage: #c6a76f;
+  --radius-card: 1.5rem;
+  --container-max: 90rem;
 }
 
 @layer utilities {
