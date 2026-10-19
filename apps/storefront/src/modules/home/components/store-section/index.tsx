@@ -28,7 +28,7 @@ export default function StoreSection() {
         <span className="text-xs uppercase tracking-[0.2em] text-coffee font-medium">
           Il negozio
         </span>
-        <h2 className="text-3xl font-medium text-foreground small:text-4xl">
+        <h2 className="font-display text-3xl font-medium italic text-foreground small:text-4xl">
           Vieni a trovarci
           <br />
           da L&apos;Ottico

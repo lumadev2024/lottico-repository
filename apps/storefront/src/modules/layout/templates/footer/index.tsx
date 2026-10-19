@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { listCategories } from "@lib/data/categories"
 import { listCollections } from "@lib/data/collections"
 import { Text, clx } from "@modules/common/components/ui"
@@ -29,11 +30,14 @@ export default async function Footer() {
       <div className="content-container flex w-full flex-col">
         <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16 small:grid-cols-5 small:py-24">
           <div className="col-span-2 flex flex-col gap-y-3 small:col-span-1">
-            <LocalizedClientLink
-              href="/"
-              className="w-fit text-lg font-medium text-foreground"
-            >
-              L&apos;Ottico
+            <LocalizedClientLink href="/" className="w-fit" aria-label="L'Ottico">
+              <Image
+                src="/images/brand/logo-mark.png"
+                alt="L'Ottico"
+                width={160}
+                height={61}
+                className="h-10 w-auto invert"
+              />
             </LocalizedClientLink>
             <Text className="text-sm text-muted">
               Boutique eyewear e consulenza in negozio a Secondigliano, Napoli.

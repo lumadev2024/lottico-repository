@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 import BrandStrip from "@modules/home/components/brand-strip"
 import CategoriesSection from "@modules/home/components/categories-section"
+import DemoProductGrid from "@modules/home/components/demo-product-grid"
 import Hero from "@modules/home/components/hero"
 import ProductGrid from "@modules/home/components/product-grid"
 import SectionHeading from "@modules/home/components/section-heading"
@@ -40,7 +41,7 @@ export default async function Home(props: {
             </LocalizedClientLink>
           }
         />
-        <ProductGrid countryCode={countryCode} />
+        <DemoProductGrid />
       </section>
 
       <SoleVistaBanner />
@@ -68,6 +69,11 @@ export default async function Home(props: {
           description="Scopri il nostro spazio, i dettagli, le collezioni e l'atmosfera di L'Ottico."
         />
         <StoreGallery />
+      </section>
+
+      <section>
+        <SectionHeading eyebrow="Dal catalogo" title="Disponibile ora" />
+        <ProductGrid countryCode={countryCode} limit={4} />
       </section>
 
       <VisitSection />

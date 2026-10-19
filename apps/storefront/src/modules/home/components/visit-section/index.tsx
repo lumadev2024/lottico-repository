@@ -10,7 +10,7 @@ export default function VisitSection() {
         <span className="text-xs uppercase tracking-[0.2em] text-white/70">
           Consulenza in negozio
         </span>
-        <h2 className="text-3xl font-medium small:text-4xl">
+        <h2 className="font-display text-3xl font-medium italic small:text-4xl">
           Prenditi cura della tua vista.
         </h2>
         <Text className="text-base text-white/80 small:text-lg">

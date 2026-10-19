@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 const PHOTOS = [
-  { src: "/images/store/storefront-sign-day.jpg", alt: "Insegna L'Ottico su via, di giorno" },
+  { src: "/images/store/interior-eyewall-center.jpg", alt: "Parete centrale di espositori con montature e brand in negozio" },
   { src: "/images/store/interior-shelves.jpg", alt: "Espositori di montature in negozio" },
   { src: "/images/store/logo-plaque.jpg", alt: "Logo L'Ottico in vetroresina sul bancone" },
   { src: "/images/store/interior-counter.jpg", alt: "Bancone e vetrina interna" },

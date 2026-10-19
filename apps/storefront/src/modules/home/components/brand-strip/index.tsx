@@ -29,7 +29,7 @@ export default function BrandStrip() {
             key={brand}
             className="flex h-20 items-center justify-center rounded-card border border-border bg-surface px-4 transition-colors hover:border-coffee small:h-24"
           >
-            <Text className="text-base font-semibold uppercase tracking-wide text-foreground/80 small:text-lg">
+            <Text className="font-display text-lg italic text-foreground/80 small:text-xl">
               {brand}
             </Text>
           </div>

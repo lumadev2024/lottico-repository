@@ -63,7 +63,7 @@ export default async function SoleVistaBanner() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
           <div className="relative flex flex-col items-start gap-y-3 p-8 text-white">
-            <h3 className="whitespace-pre-line text-3xl font-semibold leading-tight">
+            <h3 className="whitespace-pre-line font-display text-3xl font-medium italic leading-tight">
               {tile.title}
             </h3>
             <Text className="max-w-xs text-sm text-white/80">

@@ -22,8 +22,8 @@ const COLLAGE = [
     href: "/#brand",
   },
   {
-    src: "/images/store/interior-wide.jpg",
-    alt: "Interno del negozio L'Ottico con illuminazione a led",
+    src: "/images/store/interior-eyewall-left.jpg",
+    alt: "Parete di espositori con occhiali e poster brand in negozio",
     label: "Vivi l'esperienza in negozio",
     href: "/#contatti",
   },
@@ -37,10 +37,10 @@ const Hero = () => {
           Occhiali · Stile · Benessere visivo
         </span>
 
-        <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight text-foreground small:text-6xl">
+        <h1 className="font-display text-4xl font-medium leading-[1.05] tracking-tight text-foreground small:text-6xl">
           Vedi il mondo
           <br />
-          con il tuo stile.
+          <span className="italic">con il tuo stile.</span>
         </h1>
 
         <Text className="max-w-md text-base leading-relaxed text-muted small:text-lg">

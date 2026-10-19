@@ -32,7 +32,7 @@ export default function SectionHeading({
             {eyebrow}
           </span>
         )}
-        <h2 className="mt-2 text-3xl small:text-4xl font-medium text-foreground tracking-tight">
+        <h2 className="mt-2 font-display text-3xl font-medium italic text-foreground tracking-tight small:text-4xl">
           {title}
         </h2>
         {description && (
