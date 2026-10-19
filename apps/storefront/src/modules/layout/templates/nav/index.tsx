@@ -62,12 +62,12 @@ export default async function Nav() {
               aria-label="L'Ottico"
             >
               <Image
-                src="/images/brand/logo-mark.png"
+                src="/images/brand/logo-wordmark.png"
                 alt="L'Ottico"
-                width={160}
-                height={61}
+                width={220}
+                height={50}
                 priority
-                className="h-9 w-auto shrink-0"
+                className="h-7 w-auto shrink-0"
               />
             </LocalizedClientLink>
           </div>

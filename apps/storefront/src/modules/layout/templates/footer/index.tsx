@@ -32,11 +32,11 @@ export default async function Footer() {
           <div className="col-span-2 flex flex-col gap-y-3 small:col-span-1">
             <LocalizedClientLink href="/" className="w-fit" aria-label="L'Ottico">
               <Image
-                src="/images/brand/logo-mark.png"
+                src="/images/brand/logo-wordmark.png"
                 alt="L'Ottico"
-                width={160}
-                height={61}
-                className="h-10 w-auto invert"
+                width={220}
+                height={50}
+                className="h-8 w-auto invert"
               />
             </LocalizedClientLink>
             <Text className="text-sm text-muted">
