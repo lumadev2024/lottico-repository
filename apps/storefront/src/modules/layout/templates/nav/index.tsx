@@ -44,8 +44,8 @@ export default async function Nav() {
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 w-full border-b border-border bg-background/95 backdrop-blur-sm">
-        <nav className="content-container flex h-full w-full items-center justify-between text-sm text-foreground">
+      <header className="relative h-16 w-full bg-coffee">
+        <nav className="content-container flex h-full w-full items-center justify-between text-sm text-white">
           <div className="flex h-full flex-1 basis-0 items-center gap-x-2">
             <div className="h-full small:hidden">
               <SideMenu
@@ -67,7 +67,7 @@ export default async function Nav() {
                 width={160}
                 height={61}
                 priority
-                className="h-9 w-auto shrink-0 invert"
+                className="h-9 w-auto shrink-0"
               />
             </LocalizedClientLink>
           </div>
@@ -77,7 +77,7 @@ export default async function Nav() {
               <LocalizedClientLink
                 key={link.label}
                 href={link.href}
-                className="text-foreground/80 transition-colors hover:text-coffee"
+                className="text-white/80 transition-colors hover:text-white"
               >
                 {link.label}
               </LocalizedClientLink>
@@ -87,7 +87,7 @@ export default async function Nav() {
           <div className="flex h-full flex-1 basis-0 items-center justify-end gap-x-5">
             <Search />
             <LocalizedClientLink
-              className="hidden items-center hover:text-coffee small:flex"
+              className="hidden items-center text-white/80 hover:text-white small:flex"
               href="/account"
               data-testid="nav-account-link"
               aria-label="Account"
@@ -97,7 +97,7 @@ export default async function Nav() {
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="flex items-center gap-2 hover:text-coffee"
+                  className="flex items-center gap-2 text-white/80 hover:text-white"
                   href="/cart"
                   data-testid="nav-cart-link"
                   aria-label="Carrello"

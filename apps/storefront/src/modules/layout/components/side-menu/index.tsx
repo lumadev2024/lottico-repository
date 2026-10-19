@@ -45,7 +45,7 @@ const SideMenu = ({
                 <Popover.Button
                   data-testid="nav-menu-button"
                   aria-label="Apri il menu"
-                  className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-coffee"
+                  className="relative h-full flex items-center text-white/80 transition-all ease-out duration-200 focus:outline-none hover:text-white"
                 >
                   <BarsThree />
                 </Popover.Button>

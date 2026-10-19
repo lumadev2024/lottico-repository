@@ -9,22 +9,22 @@
  * untouched. These are for the premium marketing surfaces (header, footer,
  * homepage) built on top.
  *
- * Warm boutique palette, matched to the real storefront (wood panelling,
- * cream walls, near-black signage). Token *names* (--coffee, --cream,
- * --sand, --sage) are kept as-is on purpose — every component already
- * references them, so re-theming the whole site is just changing these
- * values, not touching component code.
+ * Minimal white/black palette: pure white surfaces everywhere, a solid
+ * black header bar, near-black ink for text/accents. Token *names*
+ * (--coffee, --cream, --sand, --sage) are kept as-is on purpose — every
+ * component already references them, so re-theming the whole site is just
+ * changing these values, not touching component code.
  */
 :root {
-  --background: #faf6ef;
+  --background: #ffffff;
   --surface: #ffffff;
-  --cream: #f3ece0;
-  --sand: #e9dfc9;
-  --foreground: #211a12;
-  --muted: #7a6f5f;
-  --border: #e3d8c3;
-  --coffee: #211a12;
-  --coffee-hover: #000000;
+  --cream: #f7f7f6;
+  --sand: #efefec;
+  --foreground: #111111;
+  --muted: #6b6b6b;
+  --border: #e6e6e4;
+  --coffee: #000000;
+  --coffee-hover: #1a1a1a;
   --sage: #c6a76f;
   --radius-card: 1.5rem;
   --container-max: 90rem;

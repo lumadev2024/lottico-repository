@@ -84,14 +84,14 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <PopoverButton className="h-full">
           <LocalizedClientLink
-            className="relative flex items-center hover:text-coffee"
+            className="relative flex items-center text-white/80 hover:text-white"
             href="/cart"
             data-testid="nav-cart-link"
             aria-label={`Carrello, ${totalItems} articoli`}
           >
             <ShoppingBag />
             {totalItems > 0 && (
-              <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-coffee text-[10px] text-white">
+              <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-white text-[10px] font-medium text-coffee">
                 {totalItems}
               </span>
             )}
