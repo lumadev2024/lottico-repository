@@ -62,7 +62,7 @@ export default async function Nav() {
               aria-label="L'Ottico"
             >
               <Image
-                src="/images/brand/logo-mark.svg"
+                src="/images/brand/logo-mark.png"
                 alt="L'Ottico"
                 width={160}
                 height={61}
