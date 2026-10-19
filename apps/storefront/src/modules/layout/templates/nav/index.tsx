@@ -55,20 +55,6 @@ export default async function Nav() {
                 links={mobileLinks}
               />
             </div>
-            <div className="hidden h-full items-center gap-x-7 small:flex">
-              {primaryLinks.map((link) => (
-                <LocalizedClientLink
-                  key={link.label}
-                  href={link.href}
-                  className="text-foreground/80 transition-colors hover:text-coffee"
-                >
-                  {link.label}
-                </LocalizedClientLink>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex h-full items-center">
             <LocalizedClientLink
               href="/"
               className="flex items-center"
@@ -76,7 +62,7 @@ export default async function Nav() {
               aria-label="L'Ottico"
             >
               <Image
-                src="/images/brand/logo-mark.png"
+                src="/images/brand/logo-mark.svg"
                 alt="L'Ottico"
                 width={160}
                 height={61}
@@ -84,6 +70,18 @@ export default async function Nav() {
                 className="h-9 w-auto shrink-0 invert"
               />
             </LocalizedClientLink>
+          </div>
+
+          <div className="hidden h-full items-center gap-x-7 small:flex">
+            {primaryLinks.map((link) => (
+              <LocalizedClientLink
+                key={link.label}
+                href={link.href}
+                className="text-foreground/80 transition-colors hover:text-coffee"
+              >
+                {link.label}
+              </LocalizedClientLink>
+            ))}
           </div>
 
           <div className="flex h-full flex-1 basis-0 items-center justify-end gap-x-5">
